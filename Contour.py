@@ -86,7 +86,9 @@ while True:
             
         ind = np.argmax(contour_sizes_red)
         x,y,w,h = cv2.boundingRect(contours_red[ind])       # in order to form the bounding rectangle
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)    # draws a rectangle around area of interest in the frame
+        
+        if (cv2.contourArea(contour) > 100):
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)    # draws a rectangle around area of interest in the frame
        
     if np.size(contours_blue) > 0:
         
@@ -97,7 +99,9 @@ while True:
                 
         ind = np.argmax(contour_sizes_blue)
         x,y,w,h = cv2.boundingRect(contours_blue[ind])
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+        
+        if (cv2.contourArea(contour) > 100):
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
         
     if np.size(contours_green) > 0:       # If contour found
         
@@ -108,7 +112,9 @@ while True:
                 
         ind = np.argmax(contour_sizes_green)
         x,y,w,h = cv2.boundingRect(contours_green[ind])
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)   
+        
+        if (cv2.contourArea(contour) > 100):
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)   
         
     if np.size(contours_yellow) > 0:
         
@@ -119,7 +125,9 @@ while True:
                 
         ind = np.argmax(contour_sizes_yellow)
         x,y,w,h = cv2.boundingRect(contours_yellow[ind])
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(255, 255, 0),2)
+        
+        if (cv2.contourArea(contour) > 100):
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(255, 255, 0),2)
         
         
         
